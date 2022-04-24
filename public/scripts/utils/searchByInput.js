@@ -7,12 +7,11 @@ let search = "";
 
 /** 
  * search a recipe by entering a name in the input box, it returns the desired recipes
- * */ 
+ * */
 
 function searchByInput() {
     searchInput.addEventListener("input", (e) => {
         search = e.target.value.toLowerCase();
-
         checkSearchInput(search, recipeArray);
         searchRecipeByFilter(recipeArray, filterArray);
     });
@@ -30,22 +29,31 @@ searchByInput();
  */
 function checkSearchInput(input, list) {
     list.forEach(item => {
-        // if(checkIfItemMatchInput(item.name, input)){
-        //     document.getElementById(item.id).classList.remove("hide");
-        // } else{
-        //     document.getElementById(item.id).classList.add("hide");
-        // }
-        toggleHide(item, input);
+        displayValidItemsOnly(item.name, item.id, input);
     })
 }
 
-function toggleHide(item, input){
-    if(checkIfItemMatchInput(item.name, input)){
-        document.getElementById(item.id).classList.remove("hide");
-    } else{
-        document.getElementById(item.id).classList.add("hide");
+
+// function toggleHide(item, input){
+//     if(checkIfItemMatchInput(item.name, input)){
+//         document.getElementById(item.id).classList.remove("hide");
+//     } else{
+//         document.getElementById(item.id).classList.add("hide");
+//     }
+// }
+
+
+/**
+ * if the item is valid, then we display the item.
+ * */
+function displayValidItemsOnly(itemName, itemId, input) {
+    if (checkIfItemMatchInput(itemName, input)) {
+        document.getElementById(itemId).classList.remove("hide");
+    } else {
+        document.getElementById(itemId).classList.add("hide");
     }
 }
+
 
 // // TO IMPROVE 
 // function checkIfRecipeMatchInput(recipe, input) {
@@ -73,20 +81,16 @@ searchToggleInputs.forEach(input => {
 
         if (inputClass.includes("search-ingredient")) {
             const items = document.querySelectorAll(".dropdown-item--ingredient");
-
             searchItems(items, inputValue);
         }
 
         if (inputClass.includes("search-appliance")) {
             const items = document.querySelectorAll(".dropdown-item--appliance");
-
             searchItems(items, inputValue);
         }
 
         if (inputClass.includes("search-ustensil")) {
-
             const items = document.querySelectorAll(".dropdown-item--ustensil");
-
             searchItems(items, inputValue);
         }
     })
@@ -97,27 +101,22 @@ searchToggleInputs.forEach(input => {
  * The it hides the items which are not valid and dispaly the items which are valid. 
  * 
  * */
-function searchItems(items, input){
-            let itemArray = [];
+function searchItems(items, input) {
+    let itemArray = [];
 
-            items.forEach(item => {
-                return itemArray = [...itemArray, item.innerHTML];
-            });
-            const searchedItem = input.toLowerCase();
-            itemArray.forEach(item => {
-                if(checkIfItemMatchInput(item, searchedItem)){
-                    document.getElementById(item).classList.remove("hide");
-                } else {
-                    document.getElementById(item).classList.add("hide");
-                }
-            });
+    items.forEach(item => {
+        return itemArray = [...itemArray, item.innerHTML];
+    });
+    const searchedItem = input.toLowerCase();
+    itemArray.forEach(item => {
+        displayValidItemsOnly(item, item, searchedItem);
+    });
 }
 
 /**
  * check if the items is valid or not. 
  * If the item match the input, the function returns true,
- * else, it returns false  */ 
-
+ * else, it returns false  */
 function checkIfItemMatchInput(item, input) {
     const itemLowerCase = item.toLowerCase();
     if (itemLowerCase.includes(input)) {
@@ -128,15 +127,3 @@ function checkIfItemMatchInput(item, input) {
 }
 
 
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-
-/** 
- * added setInterval to focus on the input box
-*/
-dropdownToggles.forEach(toggle => {
-        toggle.addEventListener("click", ()=>{
-            const toggleInput = toggle.querySelector(".dropdown-toggle__input");
-            console.log(toggleInput);
-            setInterval(()=>toggleInput.focus(), 500);
-        })
-})

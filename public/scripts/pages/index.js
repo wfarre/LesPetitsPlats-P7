@@ -1,5 +1,10 @@
 let recipeArray = [];
+let filterArray = [];
 
+/**
+ * 
+ * @returns the recipe data
+ */
 async function getRecipes() {
     let data = await fetch("../public/data/recettes.json").then(response => {
         return response.json();
@@ -9,30 +14,33 @@ async function getRecipes() {
         console.log(err);
     });
 
-    const recipes = data.recipes;
-
-    // console.log(recipes);
+    const recipes = data.recipes.map(recipe => {
+        return new RecipeFactory(recipe, "recipe");
+    });;
 
     return {
         recipes
     };
 }
 
-async function displayData(data) {
+/**
+ * 
+ * @param {*} recipes 
+ * displays all the data of the recipes on the DOM
+ */
+async function displayRecipeData(recipes) {
     const results = document.getElementById("result-container");
 
-    const Recipes = data.map(recipe => {
-        return new RecipeFactory(recipe, "recipe");
-    });
-
-
-    Recipes.map(recipe => {
-        const Template = new RecipeCard(recipe);
-        const recipeCard = Template.createRecipeCard();
+    recipes.map(recipe => {
+        const template = new RecipeCard(recipe);
+        const recipeCard = template.createRecipeCard();
         results.appendChild(recipeCard);
     });
 }
 
+/**
+ * triggered all the different functions
+ */
 async function init() {
     const {
         recipes
@@ -46,100 +54,14 @@ async function init() {
     const ustensilList = createItemList(recipes, "ustensils");
     const applianceList = createItemList(recipes, "appliances");
 
-    console.log(ingredientList);
-
-    // let ingredientList = [];
-    // let ustensilList = [];
-    // let applianceList = [];
-
-    // ingredientList = recipes.map(recipe => {
-
-    //     const ingredients = recipe.ingredients.map(ingredient => {
-    //         return ingredient.ingredient.toLowerCase();
-    //     });
-
-    //     return ingredientList = [...ingredientList, ...ingredients];
-    // });
-
-    // ustensilList = recipes.map(recipe => {
-
-    //     const ustensils = recipe.ustensils.map(ustensil => {
-    //         return ustensil;
-    //     });
-
-    //     return ustensilList = [...ustensilList, ...ustensils];
-    // });
-
-    // applianceList = recipes.map(recipe => {
-    //     return recipe.appliance;
-    // });
-
-
-
-
-    // const myIngredientList = ingredientList[49].filter((ingredient, pos) => {
-    //     return ingredientList[49].indexOf(ingredient) === pos;
-    // });
-
-    // const myUstensilList = ustensilList[49].filter((ustensil, pos) => {
-    //     return ustensilList[49].indexOf(ustensil) === pos;
-    // });
-    // const myApplianceList = applianceList.filter((appliance, pos) => {
-    //     return applianceList.indexOf(appliance) === pos;
-    // });
-
-    displayData(recipes);
+    displayRecipeData(recipes);
     displayIngredientList(ingredientList);
     displayUstensilList(ustensilList);
     displayApplianceList(applianceList);
     displayfilter(filterArray);
 }
 
-
-function createItemList(recipes, listType) {
-    let list = [];
-
-    switch (listType) {
-        case "ingredients":
-            recipes.map(recipe => {
-                const ingredients = recipe.ingredients.map(ingredient => {
-                    return ingredient.ingredient;
-                });
-                return list = [...list, ...ingredients];
-            })
-            break;
-        case "appliances":
-            list = recipes.map(recipe => {
-                return recipe.appliance;
-            });
-            break;
-        case "ustensils":
-            recipes.map(recipe => {
-                const ustensils = recipe.ustensils.map(ustensil => {
-                    return ustensil;
-                });
-                return list = [...list, ...ustensils];
-            })
-
-            break;
-
-        default:listType
-            break;
-    }
-
-    console.log(list);
-
-    const myList = list.filter((item, pos) => {
-        return list.indexOf(item) === pos;
-    });
-    return myList;
-
-}
-
-
 init();
-
-let filterArray = [];
 
 const displayIngredientList = (data) => {
     const myListOfIngredients = document.querySelector(".list-ingredients");
@@ -177,58 +99,44 @@ const displayUstensilList = (data) => {
 
 
 
+/**
+ * 
+ * @param {*} recipes 
+ * @param {*} listType 
+ * @returns itemArray of ingredients/ustensils/appliances
+ */
+function createItemList(recipes, listType) {
+    let list = [];
 
-class IngredientItem {
-    constructor(ingredient) {
-        this._ingredient = ingredient;
+    switch (listType) {
+        case "ingredients":
+            recipes.map(recipe => {
+                const ingredients = recipe.ingredients.map(ingredient => {
+                    return ingredient.ingredient;
+                });
+                return list = [...list, ...ingredients];
+            })
+            break;
+        case "appliances":
+            list = recipes.map(recipe => {
+                return recipe.appliance;
+            });
+            break;
+        case "ustensils":
+            recipes.map(recipe => {
+                const ustensils = recipe.ustensils.map(ustensil => {
+                    return ustensil;
+                });
+                return list = [...list, ...ustensils];
+            })
+            break;
+        default:listType
+            break;
     }
 
-    createIngredientItem() {
-        const listItem = document.createElement("li");
-        listItem.classList.add("dropdown-item");
-        listItem.classList.add("dropdown-item--ingredient");
-        listItem.setAttribute("id", this._ingredient);
+    const myList = list.filter((item, pos) => {
+        return list.indexOf(item) === pos;
+    });
+    return myList;
 
-
-        listItem.innerHTML = this._ingredient;
-
-        return (listItem);
-    }
-}
-
-
-class ApplianceItem {
-    constructor(appliance) {
-        this._appliance = appliance
-    }
-
-    createApplianceItem() {
-        const listItem = document.createElement("li");
-        listItem.classList.add("dropdown-item");
-        listItem.classList.add("dropdown-item--appliance");
-        listItem.setAttribute("id", this._appliance);
-
-        listItem.innerHTML = this._appliance;
-
-        return (listItem);
-    }
-}
-
-
-class UstensilItem {
-    constructor(ustensil) {
-        this._ustensil = ustensil
-    }
-
-    createUstensilItem() {
-        const listItem = document.createElement("li");
-        listItem.classList.add("dropdown-item");
-        listItem.classList.add("dropdown-item--ustensil");
-        listItem.setAttribute("id", this._ustensil);
-
-
-        listItem.innerHTML = this._ustensil;
-
-        return (listItem);
-    }
 }

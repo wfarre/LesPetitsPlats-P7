@@ -3,8 +3,5 @@ class RecipeFactory{
         if(type === "recipe"){
             return new Recipe(data);
         }
-        // if(type === "ingredient"){
-        //     return 
-        // }
     }
 }
