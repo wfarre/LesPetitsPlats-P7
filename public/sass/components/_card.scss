@@ -1,0 +1,104 @@
+.card {
+    background-color: #E7E7E7;
+    width: 31%;
+    height: 364px;
+    border-radius: 5px;
+    overflow: hidden;
+    &__image{
+        background-color: red;
+        height: 180px;
+        width: 100%;
+    }
+
+    &__content {
+        padding: 20px;
+        height: 184px;
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            &__title{
+                margin: 0;
+                font-size: inherit;
+            }
+        }
+        &__main{
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            &__ingredients{
+                width: 50%;
+                font-size: inherit;
+                // background-color: red;
+            }
+            &__directions{
+                // overflow: hidden;
+                // height: 100px;
+                width: 50%;
+                // font-family: 'Roboto', sans-serif;
+                // text-overflow: ellipsis;
+                // white-space:nowrap;
+                // display: -webkit-box;
+                // -webkit-line-clamp: 3;
+                // -webkit-box-orient: vertical; 
+                // text-align: justify;
+
+                overflow: hidden;
+                position: relative;
+                max-height: 109px;
+                text-align: justify;
+                margin-right: -1em;
+                padding-right: 1em;
+                // &:before {
+                //     /* points in the end */
+                //     content: '...';
+                //     /* absolute position */
+                //     position: absolute;
+                //     /* set position to right bottom corner of block */
+                //     right: 0;
+                //     bottom: 0;
+                //   }
+                // &:after {
+                //     /* points in the end */
+                //     content: '';
+                //     /* absolute position */
+                //     position: absolute;
+                //     /* set position to right bottom corner of text */
+                //     right: 0;
+                //     /* set width and height */
+                //     width: 1em;
+                //     height: 1em;
+                //     margin-top: 0.2em;
+                //     /* bg color = bg color under block */
+                //     background: white;
+                //   }
+            }
+            }
+            
+
+    }
+
+    .ingredient-list{
+        list-style-type: none;
+        padding: 0;
+        &__item{
+            width: 100%;
+            display: inline-flex;
+            justify-content: flex-start;
+            line-height: 1;
+            &__name{
+                font-weight: 700;
+                margin: 0;
+            }
+            &__quantity{
+                margin: 0;
+            }
+        }
+    }
+
+
+
+}
