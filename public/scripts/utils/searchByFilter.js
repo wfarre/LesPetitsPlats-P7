@@ -6,7 +6,7 @@
  * depending on the selected filters, the function will display the recipe which has at least 
  * one of the ingredients.
  */
- function searchRecipeByFilter(recipes, filters) {
+function searchRecipeByFilter(recipes, filters) {
     let mySelectedRecipes = recipes;
 
     // we create a new array containing only the recipes we need
@@ -56,7 +56,7 @@ function selectRecipes(filter, recipeArray) {
  * @param {*} filter 
  * @returns true if the recipe contains the filter, false if the recipe doesn't contain the filter
  */
-function checkIfRecipeIsValidByFilter(recipe, filter){
+function checkIfRecipeIsValidByFilter(recipe, filter) {
 
     let isValid = false;
     const ingredientList = recipe.ingredients.map(ingredient => {
@@ -79,3 +79,75 @@ function checkIfRecipeIsValidByFilter(recipe, filter){
     return isValid;
 }
 
+
+
+
+
+
+function sortByFilter(recipeArray, itemArray) {
+    let myfilteredArray = []
+    console.log(itemArray);
+
+    recipeArray.forEach(recipe => {
+        let recipeItems = [recipe.appliance, ...recipe.ustensils];
+
+        recipe.ingredients.forEach(ingredient => {
+            recipeItems = [...recipeItems, ingredient.ingredient];
+        });
+
+
+        // let isValid = false;
+        let isValidArray = [];
+
+        itemArray.forEach(item => {
+            // console.log(recipeItems);
+
+            let isValid = false;
+            /**
+             * check every item of the recipe
+             * if true, return isValid = true 
+             * */
+            recipeItems.forEach(recipeItem => {
+                if (recipeItem.toLowerCase() === item.toLowerCase()) {
+                    return isValid = true;
+                }
+                // console.log(isValid);
+
+            })
+            if (isValid) {
+                isValidArray.push(true);
+            } else {
+                isValidArray.push(false);
+            }
+            // console.log(recipe.name);
+            // if isValid = false, then we don't need to check for the rest of the item Array
+            // console.log(isValid);
+            // if(isValid === false){
+            //     return isValid;
+            // }
+        })
+        let bool = true;
+        isValidArray.forEach(isValid => {
+            if (isValid === false) {
+                return bool = false
+            }
+
+        })
+
+        if (bool === true) {
+            return myfilteredArray = [...myfilteredArray, recipe];
+        }
+
+    })
+
+    console.log(myfilteredArray);
+}
+
+// sortByFilter(recipeArray, itemArray);
+
+
+// itemArray.forEach(item => {
+//     if(ingredient.ingredient === item){
+//         return isValid = true;
+//     }
+// }) 

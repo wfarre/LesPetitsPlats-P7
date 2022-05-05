@@ -13,6 +13,7 @@ function displayfilter(filterArray) {
 
             removerFilter(recipeArray, filterArray);
             searchRecipeByFilter(recipeArray, filterArray);
+            sortByFilter(recipeArray, filterArray)
         });
     });
 }
@@ -34,6 +35,7 @@ function removerFilter(recipes, filters) {
                 }
             });
             searchRecipeByFilter(recipes, filters);
+            sortByFilter(recipeArray, filterArray)
         })
     })
 }
