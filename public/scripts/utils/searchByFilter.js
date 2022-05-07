@@ -84,9 +84,9 @@ function checkIfRecipeIsValidByFilter(recipe, filter) {
 
 
 
-function sortByFilter(recipeArray, itemArray) {
+function sortByFilter(recipeArray, filterArray) {
     let myfilteredArray = []
-    console.log(itemArray);
+    console.log(filterArray);
 
     recipeArray.forEach(recipe => {
         let recipeItems = [recipe.appliance, ...recipe.ustensils];
@@ -95,59 +95,83 @@ function sortByFilter(recipeArray, itemArray) {
             recipeItems = [...recipeItems, ingredient.ingredient];
         });
 
+        let isValid;
 
-        // let isValid = false;
-        let isValidArray = [];
+        for(i=0; i<filterArray.length; i++){
 
-        itemArray.forEach(item => {
-            // console.log(recipeItems);
+            isValid = recipeItems.includes(filterArray[i]);
+            // isValid = testMyRecipe(recipeItems, filterArray[i]);
 
-            let isValid = false;
-            /**
-             * check every item of the recipe
-             * if true, return isValid = true 
-             * */
-            recipeItems.forEach(recipeItem => {
-                if (recipeItem.toLowerCase() === item.toLowerCase()) {
-                    return isValid = true;
-                }
-                // console.log(isValid);
-
-            })
-            if (isValid) {
-                isValidArray.push(true);
-            } else {
-                isValidArray.push(false);
+            // if isValid is not true, then we break, so we don't go through the entire filterArray.
+            if(isValid === false){
+                break;
             }
-            // console.log(recipe.name);
-            // if isValid = false, then we don't need to check for the rest of the item Array
-            // console.log(isValid);
-            // if(isValid === false){
-            //     return isValid;
-            // }
-        })
-        let bool = true;
-        isValidArray.forEach(isValid => {
-            if (isValid === false) {
-                return bool = false
-            }
+        };
 
-        })
-
-        if (bool === true) {
+        // only isValid is true, i.e. every filter filter matches one item inside the recipe
+        if (isValid === true) {
             return myfilteredArray = [...myfilteredArray, recipe];
         }
+
+
+        ////////// FIRST VERSION ///////////////
+
+        // filterArray.forEach(filter => {
+        //     // console.log(recipeItems);
+
+        //     let isValid = false;
+        //     /**
+        //      * check every item of the recipe
+        //      * if true, return isValid = true 
+        //      * */
+        //     recipeItems.forEach(recipeItem => {
+        //         if (recipeItem.toLowerCase() === filter.toLowerCase()) {
+        //             return isValid = true;
+        //         }
+        //         // console.log(isValid);
+
+        //     })
+        //     if (isValid) {
+        //         isValidArray.push(true);
+        //     } else {
+        //         isValidArray.push(false);
+        //     }
+        //     // console.log(recipe.name);
+        //     // if isValid = false, then we don't need to check for the rest of the item Array
+        //     // console.log(isValid);
+        //     // if(isValid === false){
+        //     //     return isValid;
+        //     // }
+        // })
+        // let bool = true;
+        // isValidArray.forEach(isValid => {
+        //     if (isValid === false) {
+        //         return bool = false
+        //     }
+
+        // })
+
+      
 
     })
 
     console.log(myfilteredArray);
 }
 
-// sortByFilter(recipeArray, itemArray);
 
 
-// itemArray.forEach(item => {
-//     if(ingredient.ingredient === item){
-//         return isValid = true;
-//     }
-// }) 
+/**
+ * 
+ * check if the recipe items match the filter
+ * @returns true if valid
+  */
+function testMyRecipe(recipeItems, filter) {
+
+    let result;
+
+    recipeItems.forEach(item => {
+        result = item.toLowerCase() === filter.toLowerCase();
+    })
+
+    return result;
+}
