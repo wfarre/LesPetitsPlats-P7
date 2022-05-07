@@ -27,10 +27,17 @@ searchByInput();
  * hides the recipes which doesn't match the input.
  * displays tje recipes which matches the input.
  */
-function checkSearchInput(input, list) {
-    list.forEach(item => {
-        displayValidItemsOnly(item.name, item.id, input);
-    })
+// function checkSearchInput(input, list) {
+//     list.forEach(item => {
+//         displayValidItemsOnly(item.name, item.id, input);
+//     });
+// };
+
+
+function checkSearchInput(input, list){
+    for(i=0; i<list.length; i++){
+        displayValidItemsOnly(list[i].name, list[i].id, input);
+    }
 }
 
 
@@ -53,6 +60,35 @@ function displayValidItemsOnly(itemName, itemId, input) {
         document.getElementById(itemId).classList.add("hide");
     }
 }
+
+
+/**
+ * check if the items is valid or not. 
+ * If the item match the input, the function returns true,
+ * else, it returns false  */
+ function checkIfItemMatchInput(item, input) {
+    const itemLowerCase = item.toLowerCase();
+    if (itemLowerCase.includes(input)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+// function checkIfItemMatchInput(item, input) {
+//     const itemLowerCase = item.toLowerCase();
+//     console.log(input);
+//     for(i=0; i<input.length ; i++){
+//         console.log(input[i]);
+//         if(input[i].toLowerCase() === itemLowerCase[i]){
+//             return true;
+//         } else{
+//             return false;
+//         }
+//     }
+
+// }
 
 
 // // TO IMPROVE 
@@ -113,17 +149,6 @@ function searchItems(items, input) {
     });
 }
 
-/**
- * check if the items is valid or not. 
- * If the item match the input, the function returns true,
- * else, it returns false  */
-function checkIfItemMatchInput(item, input) {
-    const itemLowerCase = item.toLowerCase();
-    if (itemLowerCase.includes(input)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
 
 

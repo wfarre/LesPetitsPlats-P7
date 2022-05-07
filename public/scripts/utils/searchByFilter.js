@@ -14,8 +14,6 @@ function searchRecipeByFilter(recipes, filters) {
     //     mySelectedRecipes = selectRecipes(filter, mySelectedRecipes);
     // });
 
-
-
     mySelectedRecipes = sortByFilter(recipes, filters);
 
     console.log(mySelectedRecipes);
