@@ -12,7 +12,7 @@ function displayfilter(filterArray) {
             filterBox.appendChild(newfilter);
 
             removerFilter(recipeArray, filterArray);
-            searchRecipeByFilter(recipeArray, filterArray);
+            // searchRecipeByFilter(recipeArray, filterArray);
             sortByFilter(recipeArray, filterArray)
         });
     });
@@ -34,8 +34,8 @@ function removerFilter(recipes, filters) {
                     return filters.splice(filters.indexOf(item), 1);
                 }
             });
-            searchRecipeByFilter(recipes, filters);
-            sortByFilter(recipeArray, filterArray)
+            // searchRecipeByFilter(recipes, filters);
+            sortByFilter(recipes, filters)
         })
     })
 }

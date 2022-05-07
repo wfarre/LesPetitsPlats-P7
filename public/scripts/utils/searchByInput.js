@@ -13,7 +13,8 @@ function searchByInput() {
     searchInput.addEventListener("input", (e) => {
         search = e.target.value.toLowerCase();
         checkSearchInput(search, recipeArray);
-        searchRecipeByFilter(recipeArray, filterArray);
+        // searchRecipeByFilter(recipeArray, filterArray);
+        sortByFilter(recipeArray, filterArray);
     });
 }
 
