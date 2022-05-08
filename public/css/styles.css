@@ -44,7 +44,7 @@
   overflow: hidden;
 }
 .card__image {
-  background-color: red;
+  background-color: #C7BEBE;
   height: 180px;
   width: 100%;
 }
@@ -74,6 +74,7 @@
   font-size: inherit;
 }
 .card__content__main__directions {
+  line-height: 1;
   width: 50%;
   overflow: hidden;
   position: relative;
@@ -85,12 +86,12 @@
 .card .ingredient-list {
   list-style-type: none;
   padding: 0;
+  line-height: 1;
 }
 .card .ingredient-list__item {
   width: 100%;
   display: inline-flex;
   justify-content: flex-start;
-  line-height: 1;
 }
 .card .ingredient-list__item__name {
   font-weight: 700;

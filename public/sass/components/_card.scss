@@ -5,7 +5,7 @@
     border-radius: 5px;
     overflow: hidden;
     &__image{
-        background-color: red;
+        background-color: #C7BEBE;
         height: 180px;
         width: 100%;
     }
@@ -37,10 +37,15 @@
             &__directions{
                 // overflow: hidden;
                 // height: 100px;
+                line-height: 1;
                 width: 50%;
                 // font-family: 'Roboto', sans-serif;
                 // text-overflow: ellipsis;
                 // white-space:nowrap;
+                // display: -webkit-box !important;
+                // -webkit-line-clamp: 4;
+                // -webkit-box-orient: vertical;
+                // white-space: normal;
                 // display: -webkit-box;
                 // -webkit-line-clamp: 3;
                 // -webkit-box-orient: vertical; 
@@ -84,11 +89,11 @@
     .ingredient-list{
         list-style-type: none;
         padding: 0;
+        line-height: 1;
         &__item{
             width: 100%;
             display: inline-flex;
             justify-content: flex-start;
-            line-height: 1;
             &__name{
                 font-weight: 700;
                 margin: 0;

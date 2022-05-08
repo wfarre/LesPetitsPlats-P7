@@ -59,6 +59,16 @@ async function init() {
     displayUstensilList(ustensilList);
     displayApplianceList(applianceList);
     displayfilter(filterArray);
+
+    const recipeDirections = document.querySelectorAll(".card__content__main__directions > p");
+
+    recipeDirections.forEach(direction => {
+        console.log(direction.innerHTML);
+        if (direction.innerHTML.length > 220) {
+            console.log("hello");
+            direction.innerHTML = direction.innerHTML.substring(0, 220) + "...";
+        }
+    });
 }
 
 init();
@@ -130,7 +140,8 @@ function createItemList(recipes, listType) {
                 return list = [...list, ...ustensils];
             })
             break;
-        default:listType
+        default:
+            listType
             break;
     }
 
@@ -140,4 +151,3 @@ function createItemList(recipes, listType) {
     return myList;
 
 }
-
