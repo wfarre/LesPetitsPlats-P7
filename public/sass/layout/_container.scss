@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    row-gap: 18px;
+    column-gap: 10px;
+}
+
+
+.result-container{
+   width: 100%;
+   max-width: auto;
+   display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    row-gap: 18px;
+    column-gap: 10px;
+}

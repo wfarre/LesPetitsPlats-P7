@@ -6,12 +6,16 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./public/sass/main.scss ./public/css/styles.css"
+    "sass": "sass --watch ./public/sass/main.scss ./public/css/styles.css",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21",
     "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0"
   }
 }

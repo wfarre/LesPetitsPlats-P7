@@ -1,5 +1,5 @@
 import searchRecipeByFilter from "./searchByFilter.js";
-import {recipeArray, filterArray} from "../pages/index.js"
+import {recipeArray} from "../pages/index.js"
 
 
 function displayfilter(filterArray) {

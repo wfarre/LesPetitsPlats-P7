@@ -21,7 +21,7 @@ async function getRecipes() {
 
     const recipes = data.recipes.map(recipe => {
         return new RecipeFactory(recipe, "recipe");
-    });;
+    });
 
     return {
         recipes

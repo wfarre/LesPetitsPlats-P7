@@ -4,8 +4,6 @@ import {recipeArray, filterArray} from "../pages/index.js"
 
 
 const searchInput = document.getElementById("search-input");
-const cards = document.querySelectorAll(".card");
-const filterBox = document.getElementById("filters");
 let search = "";
 
 /** 
@@ -33,7 +31,7 @@ function checkSearchInput(input, list) {
     list.forEach(item => {
         displayValidItemsOnly(item.name, item.id, input);
     });
-};
+}
 
 
 /**
@@ -65,7 +63,7 @@ function displayValidItemsOnly(itemName, itemId, input) {
 // function checkIfItemMatchInput(item, input) {
 //     const itemLowerCase = item.toLowerCase();
 //     console.log(input);
-//     for(i=0; i<input.length ; i++){
+//     for(let i=0; i<input.length ; i++){
 //         console.log(input[i]);
 //         if(input[i].toLowerCase() === itemLowerCase[i]){
 //             return true;
@@ -76,12 +74,7 @@ function displayValidItemsOnly(itemName, itemId, input) {
 
 // }
 
-
-
-const searchIngredient = document.querySelector(".search-ingredient");
-
 const searchToggleInputs = document.querySelectorAll(".search-toggle");
-
 
 /**
  * add an event listener when we enter an input

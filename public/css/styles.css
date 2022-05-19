@@ -130,22 +130,27 @@
   font-size: 32px;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  font-size: 18px;
-  /* font-family: 'Roboto', sans-serif; */
-}
-
-.header {
+.container {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 42px;
-  margin-bottom: 17px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  row-gap: 18px;
+  column-gap: 10px;
 }
 
-.logo {
-  height: 93px;
-  width: 268px;
+.result-container {
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  row-gap: 18px;
+  column-gap: 10px;
 }
 
 .dropdown-menu {
@@ -160,7 +165,6 @@ body {
 .dropdown-menu--appliances {
   background-color: #68D9A4;
 }
-
 .dropdown-menu.show {
   display: flex;
   flex-direction: row;
@@ -184,39 +188,6 @@ body {
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
-}
-
-.filters {
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 18px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-  row-gap: 18px;
-}
-
-.filter-item {
-  color: #FFFFFF;
-  display: flex;
-  width: fit-content;
-  justify-content: space-around;
-  align-items: center;
-  column-gap: 18px;
-  padding: 0 20px;
-  height: 37px;
-  border-radius: 5px;
-}
-.filter-item--ingredient {
-  background-color: #3282F7;
-}
-.filter-item--ustensil {
-  background-color: #ED6454;
-}
-.filter-item--appliance {
-  background-color: #68D9A4;
-}
-.filter-item__title {
-  margin: 0;
 }
 
 .dropdown-toggle__inner-btn {
@@ -287,33 +258,6 @@ body {
   background-color: #ED6454;
 }
 
-.hide {
-  display: none;
-}
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-  row-gap: 18px;
-  column-gap: 10px;
-}
-
-.result-container {
-  width: 100%;
-  max-width: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-  row-gap: 18px;
-  column-gap: 10px;
-}
-
 .show.btn-group > .dropdown-toggle > .dropdown-toggle__inner-btn {
   display: none;
 }
@@ -327,6 +271,60 @@ body {
 }
 
 .search-toggle {
+  display: none;
+}
+
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  row-gap: 18px;
+}
+
+.filter-item {
+  color: #FFFFFF;
+  display: flex;
+  width: fit-content;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 18px;
+  padding: 0 20px;
+  height: 37px;
+  border-radius: 5px;
+}
+.filter-item--ingredient {
+  background-color: #3282F7;
+}
+.filter-item--ustensil {
+  background-color: #ED6454;
+}
+.filter-item--appliance {
+  background-color: #68D9A4;
+}
+.filter-item__title {
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 17px;
+}
+
+.logo {
+  height: 93px;
+  width: 268px;
+}
+
+.hide {
   display: none;
 }
 

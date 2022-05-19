@@ -1,0 +1,38 @@
+.filters{
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    row-gap: 18px;
+}
+
+.filter-item{
+    color: #FFFFFF;
+    display: flex;
+    width: fit-content;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 18px;
+    padding: 0 20px;
+    height: 37px;
+    border-radius: 5px;
+
+    &--ingredient{
+        background-color:#3282F7;
+    }
+    &--ustensil{
+        background-color:#ED6454;
+    }
+    &--appliance{
+        background-color: #68D9A4;
+    }
+
+
+    &__title{
+        margin: 0;
+    }
+
+}
+
+
