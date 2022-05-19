@@ -1,3 +1,8 @@
+import {recipeArray, filterArray} from "../pages/index.js";
+
+import {displayValidItemsOnly, search} from "../utils/searchByInput.js";
+
+
 /**
  * 
  * searchRecipeByFilter():
@@ -7,16 +12,8 @@
  * one of the ingredients.
  */
 function searchRecipeByFilter(recipes, filters) {
-    let mySelectedRecipes = recipes;
 
-    // we create a new array containing only the recipes we need
-    // filters.map(filter => {
-    //     mySelectedRecipes = selectRecipes(filter, mySelectedRecipes);
-    // });
-
-    mySelectedRecipes = sortByFilter(recipes, filters);
-
-    console.log(mySelectedRecipes);
+    let mySelectedRecipes = sortByFilter(recipes, filters);
 
     // if there isn't any filter, we return all the recipes
     if (filters.length === 0) {
@@ -89,8 +86,8 @@ function checkIfRecipeIsValidByFilter(recipe, filter) {
 
 
 function sortByFilter(recipeArray, filterArray) {
+    const startingTime = new Date();
     let myfilteredArray = []
-    console.log(filterArray);
 
     recipeArray.forEach(recipe => {
         let recipeItems = [recipe.appliance, ...recipe.ustensils];
@@ -101,10 +98,10 @@ function sortByFilter(recipeArray, filterArray) {
 
         let isValid;
 
-        for(i=0; i<filterArray.length; i++){
+        for(let i=0; i<filterArray.length; i++){
 
-            isValid = recipeItems.includes(filterArray[i]);
-            // isValid = testMyRecipe(recipeItems, filterArray[i]);
+            // isValid = recipeItems.includes(filterArray[i]);
+            isValid = testMyRecipe(recipeItems, filterArray[i]);
 
             // if isValid is not true, then we break, so we don't go through the entire filterArray.
             if(isValid === false){
@@ -158,6 +155,9 @@ function sortByFilter(recipeArray, filterArray) {
       
 
     })
+    const endingTime = new Date();
+    console.log("time");
+    console.log(endingTime - startingTime);
     return myfilteredArray;
 
 }
@@ -171,11 +171,17 @@ function sortByFilter(recipeArray, filterArray) {
   */
 function testMyRecipe(recipeItems, filter) {
 
-    let result;
+    let result = false;
 
     recipeItems.forEach(item => {
-        result = item.toLowerCase() === filter.toLowerCase();
+
+        if(item.toLowerCase() === filter.toLowerCase()){
+            result = true;
+        };
     })
 
     return result;
 }
+
+
+export default searchRecipeByFilter;

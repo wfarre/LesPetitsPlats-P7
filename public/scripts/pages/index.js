@@ -1,3 +1,8 @@
+import RecipeFactory from "../factories/RecipeFactory.js";
+import RecipeCard from "../templates/RecipeCard.js";
+import {ApplianceItem, UstensilItem, IngredientItem} from "../templates/FilterItem.js";
+import {displayfilter} from "../utils/filterManager.js";
+
 let recipeArray = [];
 let filterArray = [];
 
@@ -63,9 +68,7 @@ async function init() {
     const recipeDirections = document.querySelectorAll(".card__content__main__directions > p");
 
     recipeDirections.forEach(direction => {
-        console.log(direction.innerHTML);
         if (direction.innerHTML.length > 220) {
-            console.log("hello");
             direction.innerHTML = direction.innerHTML.substring(0, 220) + "...";
         }
     });
@@ -151,3 +154,6 @@ function createItemList(recipes, listType) {
     return myList;
 
 }
+
+
+export {recipeArray, filterArray};

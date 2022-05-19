@@ -1,3 +1,6 @@
+import searchRecipeByFilter from "./searchByFilter.js";
+import {recipeArray, filterArray} from "../pages/index.js"
+
 
 function displayfilter(filterArray) {
     const filterItems = document.querySelectorAll(".dropdown-item");
@@ -13,7 +16,7 @@ function displayfilter(filterArray) {
 
             removerFilter(recipeArray, filterArray);
             searchRecipeByFilter(recipeArray, filterArray);
-            sortByFilter(recipeArray, filterArray)
+            // sortByFilter(recipeArray, filterArray)
         });
     });
 }
@@ -79,7 +82,9 @@ const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 dropdownToggles.forEach(toggle => {
     toggle.addEventListener("click", () => {
         const toggleInput = toggle.querySelector(".dropdown-toggle__input");
-        console.log(toggleInput);
         setInterval(() => toggleInput.focus(), 500);
     })
 })
+
+
+export {displayfilter};

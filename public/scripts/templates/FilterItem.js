@@ -51,3 +51,5 @@ class UstensilItem {
         return (listItem);
     }
 }
+
+export {IngredientItem, UstensilItem, ApplianceItem};

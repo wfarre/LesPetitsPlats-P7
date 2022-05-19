@@ -69,3 +69,5 @@ class RecipeCard{
             return(article);
     }
 }
+
+export default RecipeCard;

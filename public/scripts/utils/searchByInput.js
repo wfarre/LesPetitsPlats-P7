@@ -1,14 +1,16 @@
+import searchRecipeByFilter from "./searchByFilter.js";
+import {recipeArray, filterArray} from "../pages/index.js"
+
+
+
 const searchInput = document.getElementById("search-input");
 const cards = document.querySelectorAll(".card");
-
 const filterBox = document.getElementById("filters");
-
 let search = "";
 
 /** 
- * search a recipe by entering a name in the input box, it returns the desired recipes
+ * search a recipe when user enters an input, it returns the desired recipes
  * */
-
 function searchByInput() {
     searchInput.addEventListener("input", (e) => {
         search = e.target.value.toLowerCase();
@@ -32,22 +34,6 @@ function checkSearchInput(input, list) {
         displayValidItemsOnly(item.name, item.id, input);
     });
 };
-
-
-// function checkSearchInput(input, list){
-//     for(i=0; i<list.length; i++){
-//         displayValidItemsOnly(list[i].name, list[i].id, input);
-//     }
-// }
-
-
-// function toggleHide(item, input){
-//     if(checkIfItemMatchInput(item.name, input)){
-//         document.getElementById(item.id).classList.remove("hide");
-//     } else{
-//         document.getElementById(item.id).classList.add("hide");
-//     }
-// }
 
 
 /**
@@ -90,16 +76,6 @@ function displayValidItemsOnly(itemName, itemId, input) {
 
 // }
 
-
-// // TO IMPROVE 
-// function checkIfRecipeMatchInput(recipe, input) {
-//     const recipeName = recipe.name.toLowerCase()
-//     if (recipeName.includes(input)) {
-//         document.getElementById(recipe.id).classList.remove("hide");
-//     } else {
-//         document.getElementById(recipe.id).classList.add("hide");
-//     }
-// }
 
 
 const searchIngredient = document.querySelector(".search-ingredient");
@@ -150,5 +126,5 @@ function searchItems(items, input) {
 }
 
 
-
+export {displayValidItemsOnly, search};
 

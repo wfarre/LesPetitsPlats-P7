@@ -1,3 +1,5 @@
+import Recipe from "../models/Recipe.js";
+
 class RecipeFactory{
     constructor(data, type){
         if(type === "recipe"){
@@ -5,3 +7,5 @@ class RecipeFactory{
         }
     }
 }
+
+export default RecipeFactory;
