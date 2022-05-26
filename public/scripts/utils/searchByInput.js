@@ -28,9 +28,6 @@ searchByInput();
  * displays tje recipes which matches the input.
  */
 function checkSearchInput(input, list) {
-    // list.forEach(item => {
-    //     displayValidItemsOnly(item.name, item.id, input);
-    // });
     for(let i=0; i<list.length; i++){
         displayValidItemsOnly(list[i].name, list[i].id, input);
     }
@@ -61,21 +58,6 @@ function displayValidItemsOnly(itemName, itemId, input) {
         return false;
     }
 }
-
-
-// function checkIfItemMatchInput(item, input) {
-//     const itemLowerCase = item.toLowerCase();
-//     console.log(input);
-//     for(let i=0; i<input.length ; i++){
-//         console.log(input[i]);
-//         if(input[i].toLowerCase() === itemLowerCase[i]){
-//             return true;
-//         } else{
-//             return false;
-//         }
-//     }
-
-// }
 
 const searchToggleInputs = document.querySelectorAll(".search-toggle");
 
