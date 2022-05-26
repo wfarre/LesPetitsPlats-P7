@@ -2,6 +2,9 @@ import searchRecipeByFilter from "./searchByFilter.js";
 import {recipeArray} from "../pages/index.js"
 
 
+/**
+ * when user chooses a filter, 
+ * the filter is added to the filterBox */
 function displayfilter(filterArray) {
     const filterItems = document.querySelectorAll(".dropdown-item");
     const filterBox = document.getElementById("filters");
@@ -14,15 +17,19 @@ function displayfilter(filterArray) {
             const newfilter = createFilterBtn(filter);
             filterBox.appendChild(newfilter);
 
-            removerFilter(recipeArray, filterArray);
+            removeFilter(recipeArray, filterArray);
             searchRecipeByFilter(recipeArray, filterArray);
-            // sortByFilter(recipeArray, filterArray)
         });
     });
 }
 
-
-function removerFilter(recipes, filters) {
+/**
+ * When the user clicks on one of the selected filters, 
+ * it is removed form the filterBox
+ * @param {*} recipes 
+ * @param {*} filters 
+ */
+function removeFilter(recipes, filters) {
 
     const removeBtnArray = document.querySelectorAll(".remove-btn");
 
@@ -45,7 +52,11 @@ function removerFilter(recipes, filters) {
 
 displayfilter();
 
-
+/**
+ * 
+ * @param {*} filter 
+ * @returns the filter to display
+ */
 function createFilterBtn(filter){
     const filterClass = filter.classList[1];
 

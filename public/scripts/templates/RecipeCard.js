@@ -14,12 +14,12 @@ class RecipeCard{
         
         ingredientList.map(ingredient => {
             const unit = ingredient.unit ? ingredient.unit : "";
-            const quantity = ingredient.quantity ? ":" + ingredient.quantity : "";
+            const quantity = ingredient.quantity ? " : " + ingredient.quantity : " ";
             const ingredientItem = `
             <li class="ingredient-list__item">
                 <p class="ingredient-list__item__name">
                     ${ingredient.ingredient}
-                </p>
+                </p> 
                 <p class="ingredient-list__item__quantity">
                     ${quantity} ${unit}
                 </p>
@@ -41,7 +41,7 @@ class RecipeCard{
                         </h2>
                         <div class="card__content__header__duration">
                             <img src="./assets/images/clock-icon.svg" alt="">
-                            <span>${this._recipe.time}</span>
+                            <span>${this._recipe.time} min</span>
                         </div>
                     </header>
     

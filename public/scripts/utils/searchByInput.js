@@ -28,9 +28,12 @@ searchByInput();
  * displays tje recipes which matches the input.
  */
 function checkSearchInput(input, list) {
-    list.forEach(item => {
-        displayValidItemsOnly(item.name, item.id, input);
-    });
+    // list.forEach(item => {
+    //     displayValidItemsOnly(item.name, item.id, input);
+    // });
+    for(let i=0; i<list.length; i++){
+        displayValidItemsOnly(list[i].name, list[i].id, input);
+    }
 }
 
 

@@ -3,6 +3,13 @@
   width: 170px;
   margin-right: 20px;
   font-weight: 700;
+  position: relative;
+}
+.dropdown-toggle .fa-chevron-down {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
 }
 
 .dropdown-toggle:after {
@@ -63,6 +70,12 @@
 .card__content__header__title {
   margin: 0;
   font-size: inherit;
+}
+.card__content__header__duration {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .card__content__main {
   display: flex;

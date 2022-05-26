@@ -39,7 +39,7 @@ function searchRecipeByFilter(recipes, filters) {
 
 
 function sortByFilter(recipeArray, filterArray) {
-    const startingTime = new Date();
+    
     let myfilteredArray = []
 
     recipeArray.forEach(recipe => {
@@ -53,8 +53,8 @@ function sortByFilter(recipeArray, filterArray) {
 
         for(let i=0; i<filterArray.length; i++){
 
-            // isValid = recipeItems.includes(filterArray[i]);
-            isValid = testMyRecipe(recipeItems, filterArray[i]);
+            isValid = recipeItems.includes(filterArray[i]);
+            // isValid = testMyRecipe(recipeItems, filterArray[i]);
 
             // if isValid is not true, then we break, so we don't go through the entire filterArray.
             if(isValid === false){
@@ -67,34 +67,41 @@ function sortByFilter(recipeArray, filterArray) {
             return myfilteredArray = [...myfilteredArray, recipe];
         }
     })
-    const endingTime = new Date();
-    console.log("time");
-    console.log(endingTime - startingTime);
     return myfilteredArray;
-
 }
 
 
 
-/**
- * 
- * check if the recipe items match the filter
- * @returns true if valid
-  */
-function testMyRecipe(recipeItems, filter) {
+// /**
+//  * 
+//  * check if the recipe items match the filter
+//  * @returns true if valid
+//   */
+// function testMyRecipe(recipeItems, filter) {
 
-    let result = false;
+//     let result = false;
 
-    recipeItems.forEach(item => {
+//     recipeItems.forEach(item => {
 
-        if(item.toLowerCase() === filter.toLowerCase()){
-            result = true;
-        }
-    })
+//         if(item.toLowerCase() === filter.toLowerCase()){
+//             result = true;
+//         }
+//     })
 
-    return result;
-}
+//     return result;
+// }
 
+
+
+
+
+
+
+
+
+
+
+export default searchRecipeByFilter;
 
 
 // THIS FUNCTION IS NOT EFFICIENT ENOUGH
@@ -141,14 +148,6 @@ function testMyRecipe(recipeItems, filter) {
 
 //     return isValid;
 // }
-
-
-
-
-
-
-
-export default searchRecipeByFilter;
 
 
 
