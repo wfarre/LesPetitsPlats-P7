@@ -28,19 +28,45 @@ searchByInput();
  * displays tje recipes which matches the input.
  */
 function checkSearchInput(input, list) {
+    // FOREACH FUNCTION 
     // list.forEach(item => {
-    //     displayValidItemsOnly(item.name, item.id, input);
+    //     displayValidItemsOnly(item, input);
     // });
-    for(let i=0; i<list.length; i++){
-        displayValidItemsOnly(list[i].name, list[i].id, input);
-    }
+
+    // MAP FUNCTION
+    list.map(item => displayValidItemsOnly(item, input) );
+
+    // REDUCE FUNCTION 
+    // list.reduce(concatMyList, [])
+
+    // function concatMyList(newlist, item){
+    //     return [newlist, displayValidItemsOnly(item, input)]
+    // }
+
+    // WHILE LOOP 
+    // let i = 0;
+    
+    // while( i<list.length){
+    //     displayValidItemsOnly(list[i], input);
+    //     i++
+    // }
+
+    // FOR LOOP 
+    // for(let i=0; i<list.length; i++){
+    //     displayValidItemsOnly(list[i], input);
+    // }
 }
 
 
 /**
  * if the item is valid, then we display the item.
  * */
-function displayValidItemsOnly(itemName, itemId, input) {
+function displayValidItemsOnly(item , input) {
+
+    const itemName = item.name;
+    const itemId = item.id;
+
+
     if (checkIfItemMatchInput(itemName, input)) {
         document.getElementById(itemId).classList.remove("hide");
     } else {
@@ -61,6 +87,7 @@ function displayValidItemsOnly(itemName, itemId, input) {
         return false;
     }
 }
+
 
 
 // function checkIfItemMatchInput(item, input) {
@@ -123,4 +150,6 @@ function searchItems(items, input) {
 
 
 export {displayValidItemsOnly, search};
+
+
 

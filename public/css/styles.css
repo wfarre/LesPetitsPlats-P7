@@ -70,12 +70,14 @@
 .card__content__header__title {
   margin: 0;
   font-size: inherit;
+  max-width: 210px;
 }
 .card__content__header__duration {
-  width: 80px;
+  width: fit-content;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  column-gap: 5px;
 }
 .card__content__main {
   display: flex;
@@ -153,17 +155,22 @@
   row-gap: 18px;
   column-gap: 10px;
 }
+.container--filter-research {
+  justify-content: flex-start;
+  gap: 2%;
+}
 
 .result-container {
   width: 100%;
   max-width: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  padding-bottom: 10px;
   row-gap: 18px;
-  column-gap: 10px;
+  column-gap: 3%;
 }
 
 .dropdown-menu {
@@ -185,12 +192,13 @@
   flex-wrap: wrap;
   width: fit-content;
   height: fit-content;
-  max-width: 667px;
+  max-width: 670px;
   max-height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
   border: none;
   margin-top: 0;
+  padding-bottom: 50px;
 }
 
 .dropdown-item {
@@ -201,6 +209,11 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.dropdown-item:hover {
+  cursor: pointer;
 }
 
 .dropdown-toggle__inner-btn {
@@ -246,6 +259,7 @@
 .dropdown-toggle {
   width: 170px;
   transition: width 500ms;
+  margin: 0;
 }
 
 .dropdown-toggle:focus-within {
@@ -253,19 +267,22 @@
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
-.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.btn-success:not(:disabled):not(.disabled).active,
 .show > .btn-success.dropdown-toggle {
   color: #fff;
   background-color: #68D9A4;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #3282F7;
 }
 
-.btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
+.btn-danger:not(:disabled):not(.disabled).active,
 .show > .btn-danger.dropdown-toggle {
   color: #fff;
   background-color: #ED6454;
