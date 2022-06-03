@@ -39,9 +39,7 @@ function checkSearchInput(input, list) {
     // REDUCE FUNCTION 
     // list.reduce(concatMyList, [])
 
-    // function concatMyList(newlist, item){
-    //     return [newlist, displayValidItemsOnly(item, input)]
-    // }
+    // list.reduce((newlist, item) => displayValidItemsOnly(item, input),[])
 
     // WHILE LOOP 
     // let i = 0;
