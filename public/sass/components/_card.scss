@@ -25,10 +25,11 @@
                 font-size: inherit;
             }
             &__duration{
-                width: 80px;
+                width: 150px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: flex-end;
+                column-gap: 10px;
             }
         }
         &__main{
@@ -38,54 +39,16 @@
             &__ingredients{
                 width: 50%;
                 font-size: inherit;
-                // background-color: red;
             }
             &__directions{
-                // overflow: hidden;
-                // height: 100px;
                 line-height: 1;
                 width: 50%;
-                // font-family: 'Roboto', sans-serif;
-                // text-overflow: ellipsis;
-                // white-space:nowrap;
-                // display: -webkit-box !important;
-                // -webkit-line-clamp: 4;
-                // -webkit-box-orient: vertical;
-                // white-space: normal;
-                // display: -webkit-box;
-                // -webkit-line-clamp: 3;
-                // -webkit-box-orient: vertical; 
-                // text-align: justify;
-
                 overflow: hidden;
                 position: relative;
                 max-height: 109px;
                 text-align: justify;
                 margin-right: -1em;
                 padding-right: 1em;
-                // &:before {
-                //     /* points in the end */
-                //     content: '...';
-                //     /* absolute position */
-                //     position: absolute;
-                //     /* set position to right bottom corner of block */
-                //     right: 0;
-                //     bottom: 0;
-                //   }
-                // &:after {
-                //     /* points in the end */
-                //     content: '';
-                //     /* absolute position */
-                //     position: absolute;
-                //     /* set position to right bottom corner of text */
-                //     right: 0;
-                //     /* set width and height */
-                //     width: 1em;
-                //     height: 1em;
-                //     margin-top: 0.2em;
-                //     /* bg color = bg color under block */
-                //     background: white;
-                //   }
             }
             }
             

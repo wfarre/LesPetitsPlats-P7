@@ -37,6 +37,8 @@
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .dropdown-toggle__inner-btn{

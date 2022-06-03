@@ -72,10 +72,11 @@
   font-size: inherit;
 }
 .card__content__header__duration {
-  width: 80px;
+  width: 150px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  column-gap: 10px;
 }
 .card__content__main {
   display: flex;
@@ -201,6 +202,8 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .dropdown-toggle__inner-btn {
