@@ -47,39 +47,37 @@
                 </div>
 
                 <div class="container container--search-filter">
+
                     <div class="btn-group">
+
                         <div class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <button type="button" class="dropdown-toggle__inner-btn">
                                 Ingrédients
                             </button>
                             <i class="fas fa-chevron-down"></i>
-
-
                             <input type="text" class="search-toggle search-ingredient dropdown-toggle__input"
                                 placeholder="Rechercher un ingrédient" tabindex="0" />
                         </div>
 
                         <ul class="dropdown-menu dropdown-menu--ingredients list-ingredients">
-
                         </ul>
-                    </div>
+
+                    </div><!-- .btn-group -->
 
                     <div class="btn-group">
+
                         <div class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <button type="button" class="dropdown-toggle__inner-btn">
                                 Appareils
                             </button>
                             <i class="fas fa-chevron-down"></i>
-
-
                             <input type="text" class="search-toggle search-appliance dropdown-toggle__input"
                                 placeholder="Rechercher un appareil" tabindex=0 />
                         </div>
 
                         <ul class="dropdown-menu dropdown-menu--appliances list-appliances">
-
                         </ul>
-                    </div>
+                    </div><!-- .btn-group -->
 
                     <div class="btn-group">
 
@@ -93,22 +91,18 @@
                                 placeholder="Rechercher un ustensile" tabindex=0 />
                         </div>
 
-
-
-
                         <div class="dropdown-menu dropdown-menu--ustensils list-ustensils">
-
                         </div>
-                    </div>
-                </div>
+
+                    </div><!-- .btn-group -->
+                </div><!-- .container -->
 
             </div>
-        </section>
+        </section> <!-- #section--research -->
 
         <section id="section--result" class="section section--result">
 
             <div id="result-container" class=" result-container">
-
             </div>
 
         </section>
@@ -117,6 +111,7 @@
 
 
 
+    <!-- BOOTSTRAP  -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -124,6 +119,7 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
     </script>
 
+    <!-- my modules  -->
     <script type="module" src="./scripts/pages/index.js"></script>
     <script type="module" defer src="./scripts/utils/searchByInput.js"></script>
     <script type="module" src="./scripts/utils/searchByFilter.js"></script>
