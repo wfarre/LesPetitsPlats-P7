@@ -28,16 +28,21 @@ searchByInput();
  * displays tje recipes which matches the input.
  */
 function checkSearchInput(input, list) {
-    for(let i=0; i<list.length; i++){
-        displayValidItemsOnly(list[i].name, list[i].id, input);
-    }
+    list.forEach(item => {
+        displayValidItemsOnly(item, input);
+    });
 }
 
 
 /**
  * if the item is valid, then we display the item.
  * */
-function displayValidItemsOnly(itemName, itemId, input) {
+function displayValidItemsOnly(item , input) {
+
+    const itemName = item.name;
+    const itemId = item.id;
+
+
     if (checkIfItemMatchInput(itemName, input)) {
         document.getElementById(itemId).classList.remove("hide");
     } else {
@@ -60,6 +65,20 @@ function displayValidItemsOnly(itemName, itemId, input) {
 }
 
 
+
+// function checkIfItemMatchInput(item, input) {
+//     const itemLowerCase = item.toLowerCase();
+//     console.log(input);
+//     for(let i=0; i<input.length ; i++){
+//         console.log(input[i]);
+//         if(input[i].toLowerCase() === itemLowerCase[i]){
+//             return true;
+//         } else{
+//             return false;
+//         }
+//     }
+
+// }
 
 const searchToggleInputs = document.querySelectorAll(".search-toggle");
 
@@ -107,4 +126,6 @@ function searchItems(items, input) {
 
 
 export {displayValidItemsOnly, search};
+
+
 
