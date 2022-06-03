@@ -29,15 +29,23 @@ searchByInput();
  */
 function checkSearchInput(input, list) {
     // FOREACH FUNCTION 
-    // list.forEach(item => {
-    //     displayValidItemsOnly(item, input);
-    // });
+    list.forEach(item => {
+        displayValidItemsOnly(item, input);
+    });
 
     // MAP FUNCTION
-    list.map(item => displayValidItemsOnly(item, input) );
+    // list.map(item => displayValidItemsOnly(item, input) );
 
     // REDUCE FUNCTION 
-    // list.reduce(concatMyList, [])
+//    const myNewList =  list.reduce((newList, item) => {
+//         if(checkIfItemMatchInput(item.name, input)){
+//             newList.push(item)
+//         }
+
+//         return newList;
+//     }, [])
+
+//     console.log(myNewList);
 
     // list.reduce((newlist, item) => displayValidItemsOnly(item, input),[])
 
@@ -78,6 +86,7 @@ function displayValidItemsOnly(item , input) {
  * If the item match the input, the function returns true,
  * else, it returns false  */
  function checkIfItemMatchInput(item, input) {
+     console.log(item);
     const itemLowerCase = item.toLowerCase();
     if (itemLowerCase.includes(input)) {
         return true;
