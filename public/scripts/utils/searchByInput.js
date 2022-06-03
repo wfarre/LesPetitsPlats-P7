@@ -19,6 +19,9 @@ function searchByInput() {
 
 searchByInput();
 
+const hello = ["banane", "fraise", "cerise", "myrtille"];
+hello.forEach(item => console.log(item))
+
 
 /**
  * 
@@ -28,13 +31,13 @@ searchByInput();
  * displays tje recipes which matches the input.
  */
 function checkSearchInput(input, list) {
+    console.log(list);
 
-    let i = 0;
+    // const hello = ["banane", "fraise", "cerise", "myrtille"];
+    // hello.forEach(item =>  console.log(item))
     list.forEach(item => {
-        displayValidItemsOnly(item, input);
-        console.log(i);
-        i++;
-    });
+        displayValidItemsOnly(item, input)
+    })
 }
 
 
