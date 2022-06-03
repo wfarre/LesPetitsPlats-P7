@@ -154,22 +154,17 @@
   row-gap: 18px;
   column-gap: 10px;
 }
-.container--search-filter {
-  justify-content: flex-start;
-  gap: 18px;
-}
 
 .result-container {
   width: 100%;
   max-width: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  padding-bottom: 18px;
   row-gap: 18px;
-  column-gap: 3.5%;
+  column-gap: 10px;
 }
 
 .dropdown-menu {
@@ -207,8 +202,6 @@
   font-size: 18px;
   line-height: 22px;
   color: #FFFFFF;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .dropdown-toggle__inner-btn {
@@ -254,7 +247,6 @@
 .dropdown-toggle {
   width: 170px;
   transition: width 500ms;
-  margin-right: 0;
 }
 
 .dropdown-toggle:focus-within {
