@@ -7,6 +7,11 @@
     padding: 0;
     row-gap: 18px;
     column-gap: 10px;
+
+    &--search-filter{
+        justify-content: flex-start;
+        gap: 18px;
+    }
 }
 
 
@@ -14,10 +19,11 @@
    width: 100%;
    max-width: auto;
    display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
+    padding-bottom: 18px;
     row-gap: 18px;
-    column-gap: 10px;
+    column-gap: 3.5%;
 }

@@ -49,11 +49,15 @@ function sortByFilter(recipeArray, filterArray) {
             recipeItems = [...recipeItems, ingredient.ingredient];
         });
 
+        const lowerCaseRecipeItems = recipeItems.map((item) => {
+            return item.toLowerCase()
+        } );
+
         let isValid;
 
         for(let i=0; i<filterArray.length; i++){
 
-            isValid = recipeItems.includes(filterArray[i]);
+            isValid = lowerCaseRecipeItems.includes(filterArray[i].toLowerCase());
 
             // if isValid is not true, then we break, so we don't go through the entire filterArray.
             if(isValid === false){

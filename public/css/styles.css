@@ -72,11 +72,11 @@
   font-size: inherit;
 }
 .card__content__header__duration {
-  width: 150px;
+  width: 145px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  column-gap: 10px;
+  column-gap: 5px;
 }
 .card__content__main {
   display: flex;
@@ -154,17 +154,22 @@
   row-gap: 18px;
   column-gap: 10px;
 }
+.container--search-filter {
+  justify-content: flex-start;
+  gap: 18px;
+}
 
 .result-container {
   width: 100%;
   max-width: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  padding-bottom: 18px;
   row-gap: 18px;
-  column-gap: 10px;
+  column-gap: 3.5%;
 }
 
 .dropdown-menu {
@@ -249,6 +254,7 @@
 .dropdown-toggle {
   width: 170px;
   transition: width 500ms;
+  margin-right: 0;
 }
 
 .dropdown-toggle:focus-within {
