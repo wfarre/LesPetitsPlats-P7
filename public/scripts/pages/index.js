@@ -11,7 +11,7 @@ let filterArray = [];
  * @returns the recipe data
  */
 async function getRecipes() {
-    let data = await fetch("../public/data/recettes.json").then(response => {
+    let data = await fetch("../data/recettes.json").then(response => {
         return response.json();
     }).then(data => {
         return data;
