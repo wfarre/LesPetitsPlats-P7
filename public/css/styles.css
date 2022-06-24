@@ -161,7 +161,6 @@
 
 .result-container {
   width: 100%;
-  max-width: auto;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
