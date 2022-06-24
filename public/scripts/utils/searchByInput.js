@@ -12,8 +12,13 @@ let search = "";
 function searchByInput() {
     searchInput.addEventListener("input", (e) => {
         search = e.target.value.toLowerCase();
-        checkSearchInput(search, recipeArray);
-        searchRecipeByFilter(recipeArray, filterArray);
+        if(search.length >= 3){
+            checkSearchInput(search, recipeArray);
+            searchRecipeByFilter(recipeArray, filterArray);
+        }else{
+            search = " ";
+            checkSearchInput(search, recipeArray);
+        }
     });
 }
 
