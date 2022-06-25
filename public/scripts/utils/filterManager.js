@@ -1,5 +1,5 @@
-import searchRecipeByFilter from "./searchByFilter.js";
-import {recipeArray} from "../pages/index.js"
+import {filterArray, recipeArray} from "../pages/index.js"
+import { searchByInput} from "./searchByInput.js"
 
 
 /**
@@ -18,7 +18,7 @@ function displayfilter(filterArray) {
             filterBox.appendChild(newfilter);
 
             removeFilter(recipeArray, filterArray);
-            searchRecipeByFilter(recipeArray, filterArray);
+            searchByInput(filterArray)
         });
     });
 }
@@ -44,8 +44,7 @@ function removeFilter(recipes, filters) {
                     return filters.splice(filters.indexOf(item), 1);
                 }
             });
-            searchRecipeByFilter(recipes, filters);
-            // sortByFilter(recipeArray, filterArray)
+            searchByInput(filterArray)
         })
     })
 }

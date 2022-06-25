@@ -2,6 +2,12 @@ import RecipeFactory from "../factories/RecipeFactory.js";
 import RecipeCard from "../templates/RecipeCard.js";
 import {ApplianceItem, UstensilItem, IngredientItem} from "../templates/FilterItem.js";
 import {displayfilter} from "../utils/filterManager.js";
+import {empty} from "../utils/searchByInput.js";
+
+// import {checkSearchInput} from "../utils/searchByInput.js";
+
+// import {empty} from "../utils/searchByInput"
+// import {checkSearchInput}
 
 let recipeArray = [];
 let filterArray = [];
@@ -28,12 +34,28 @@ async function getRecipes() {
     };
 }
 
+
+function resetDOM(){
+    const cards = document.querySelectorAll(".card");
+    const filters = document.querySelectorAll(".dropdown-item");
+    console.log("aie");
+    console.log(cards[2]);
+
+    cards.forEach(card => {
+        card.remove();
+    })
+
+    filters.forEach(filter => {
+        filter.remove();
+    })
+}
+
 /**
  * 
  * @param {*} recipes 
  * displays all the data of the recipes on the DOM
  */
-async function displayRecipeData(recipes) {
+export async function displayRecipeData(recipes) {
     const results = document.getElementById("result-container");
 
     recipes.map(recipe => {
@@ -46,21 +68,25 @@ async function displayRecipeData(recipes) {
 /**
  * triggered all the different functions
  */
-async function init() {
-    const {
+export async function init(callback1, callback2) {
+    let {
         recipes
     } = await getRecipes();
 
+    resetDOM();
     
-    recipeArray = recipes.map(recipe => {
+    let newRecipes = callback1(recipes);
+    let newnewRecipes = callback2(newRecipes);
+
+    recipeArray = newnewRecipes.map(recipe => {
         return recipe;
     });
 
-    const ingredientList = createItemList(recipes, "ingredients");
-    const ustensilList = createItemList(recipes, "ustensils");
-    const applianceList = createItemList(recipes, "appliances");
+    const ingredientList = createItemList(newnewRecipes, "ingredients");
+    const ustensilList = createItemList(newnewRecipes, "ustensils");
+    const applianceList = createItemList(newnewRecipes, "appliances");
 
-    displayRecipeData(recipes);
+    displayRecipeData(newnewRecipes);
     displayIngredientList(ingredientList);
     displayUstensilList(ustensilList);
     displayApplianceList(applianceList);
@@ -73,11 +99,12 @@ async function init() {
             direction.innerHTML = direction.innerHTML.substring(0, 220) + "...";
         }
     });
+
 }
 
-init();
+init(empty,empty);
 
-const displayIngredientList = (data) => {
+export const displayIngredientList = (data) => {
     const myListOfIngredients = document.querySelector(".list-ingredients");
 
     data.map(ingredient => {
@@ -88,7 +115,7 @@ const displayIngredientList = (data) => {
     });
 }
 
-const displayApplianceList = (data) => {
+export const displayApplianceList = (data) => {
     const myListOfAppliances = document.querySelector(".list-appliances");
 
     data.map(appliance => {
@@ -100,7 +127,7 @@ const displayApplianceList = (data) => {
 }
 
 
-const displayUstensilList = (data) => {
+export const displayUstensilList = (data) => {
     const myListOfUstensils = document.querySelector(".list-ustensils");
 
     data.map(ustensil => {
@@ -119,7 +146,7 @@ const displayUstensilList = (data) => {
  * @param {*} listType 
  * @returns itemArray of ingredients/ustensils/appliances
  */
-function createItemList(recipes, listType) {
+export function createItemList(recipes, listType) {
     let list = [];
 
     switch (listType) {

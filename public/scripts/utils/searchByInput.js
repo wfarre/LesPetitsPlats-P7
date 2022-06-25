@@ -1,29 +1,33 @@
-import searchRecipeByFilter from "./searchByFilter.js";
-import {recipeArray, filterArray} from "../pages/index.js"
+import {searchRecipeByFilter } from "../utils/searchByFilter.js";
+import { filterArray} from "../pages/index.js"
+
 
 
 
 const searchInput = document.getElementById("search-input");
 let search = "";
 
+export function empty(myRecipeArray){
+    return myRecipeArray
+}
+
 /** 
  * search a recipe when user enters an input, it returns the desired recipes
  * */
-function searchByInput() {
     searchInput.addEventListener("input", (e) => {
         search = e.target.value.toLowerCase();
-        if(search.length >= 3){
-            checkSearchInput(search, recipeArray);
-            searchRecipeByFilter(recipeArray, filterArray);
-        }else{
-            search = " ";
-            checkSearchInput(search, recipeArray);
-        }
+        searchByInput(filterArray);
     });
+
+
+export function searchByInput(filterArray){
+    if(search.length >= 3){
+        searchRecipeByFilter(filterArray, checkSearchInput)
+        return ;
+    }else{
+        searchRecipeByFilter(filterArray, empty)
+    }
 }
-
-searchByInput();
-
 
 /**
  * 
@@ -32,8 +36,17 @@ searchByInput();
  * hides the recipes which doesn't match the input.
  * displays tje recipes which matches the input.
  */
-function checkSearchInput(input, list) {
-    list.forEach(item => displayValidItemsOnly(item.name, item.id, input))
+export function checkSearchInput(list) {
+    const myNewList = [];
+    const input = search 
+    list.forEach(item => {
+        // displayValidItemsOnly(item.name, item.id, input)
+        if(checkIfItemMatchInput(item.name, input)){
+            myNewList.push(item)
+        }
+    })
+
+    return myNewList;
 
 }
 
