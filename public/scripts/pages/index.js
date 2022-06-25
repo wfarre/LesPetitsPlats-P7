@@ -51,6 +51,7 @@ async function init() {
         recipes
     } = await getRecipes();
 
+    
     recipeArray = recipes.map(recipe => {
         return recipe;
     });
