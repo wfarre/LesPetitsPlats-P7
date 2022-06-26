@@ -38,6 +38,7 @@ async function getRecipes() {
 function resetDOM(){
     const cards = document.querySelectorAll(".card");
     const filters = document.querySelectorAll(".dropdown-item");
+    const message = document.querySelector(".message");
 
     cards.forEach(card => {
         card.remove();
@@ -46,6 +47,13 @@ function resetDOM(){
     filters.forEach(filter => {
         filter.remove();
     })
+
+    if(message){
+        message.remove();
+
+    }
+
+
 }
 
 /**
@@ -84,11 +92,13 @@ export async function init(callback1, callback2) {
     const ustensilList = createItemList(newnewRecipes, "ustensils");
     const applianceList = createItemList(newnewRecipes, "appliances");
 
-    if(newnewRecipes === []){
+    if(newnewRecipes.length === 0){
         const results = document.getElementById("result-container");
-        const message = "« Aucune recette ne correspond à votre critère…"
-        results.appendChild(message);
-        return ;
+        const messageContainer = document.createElement("div")
+        messageContainer.classList.add("message");
+        messageContainer.innerHTML = `<p>Aucune recette ne correspond à votre critère…</p>`
+        results.appendChild(messageContainer);
+        // return ;
     }
     displayRecipeData(newnewRecipes);
     displayIngredientList(ingredientList);
