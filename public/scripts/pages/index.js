@@ -153,20 +153,20 @@ export function createItemList(recipes, listType) {
         case "ingredients":
             recipes.map(recipe => {
                 const ingredients = recipe.ingredients.map(ingredient => {
-                    return ingredient.ingredient;
+                    return ingredient.ingredient.toLowerCase();
                 });
                 return list = [...list, ...ingredients];
             })
             break;
         case "appliances":
             list = recipes.map(recipe => {
-                return recipe.appliance;
+                return recipe.appliance.toLowerCase();
             });
             break;
         case "ustensils":
             recipes.map(recipe => {
                 const ustensils = recipe.ustensils.map(ustensil => {
-                    return ustensil;
+                    return ustensil.toLowerCase();
                 });
                 return list = [...list, ...ustensils];
             })

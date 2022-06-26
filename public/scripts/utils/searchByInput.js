@@ -40,7 +40,6 @@ export function checkSearchInput(list) {
     const myNewList = [];
     const input = search 
     list.forEach(item => {
-        // displayValidItemsOnly(item.name, item.id, input)
         if(checkIfItemMatchInput(item.name, input)){
             myNewList.push(item)
         }
@@ -51,9 +50,9 @@ export function checkSearchInput(list) {
 }
 
 
-/**
- * if the item is valid, then we display the item.
- * */
+// /**
+//  * if the item is valid, then we display the item.
+//  * */
 function displayValidItemsOnly(itemName, itemId, input) {
     if (checkIfItemMatchInput(itemName, input)) {
         document.getElementById(itemId).classList.remove("hide");
