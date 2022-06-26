@@ -84,6 +84,12 @@ export async function init(callback1, callback2) {
     const ustensilList = createItemList(newnewRecipes, "ustensils");
     const applianceList = createItemList(newnewRecipes, "appliances");
 
+    if(newnewRecipes === []){
+        const results = document.getElementById("result-container");
+        const message = "« Aucune recette ne correspond à votre critère…"
+        results.appendChild(message);
+        return ;
+    }
     displayRecipeData(newnewRecipes);
     displayIngredientList(ingredientList);
     displayUstensilList(ustensilList);
