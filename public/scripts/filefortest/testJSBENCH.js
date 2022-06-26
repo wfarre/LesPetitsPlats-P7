@@ -1,10 +1,12 @@
 const searchInput = document.getElementById("search-input");
 let search = "limo";
 let filterArray = ["sucre"];
+let recipes = myRecipeArray;
 
 function init(callback1,callback2){
-    let recipeArray = callback1(recipe);
+    let recipeArray = callback1(recipes);
     let newRecipes = callback2(recipeArray);
+
     
 }
 
@@ -99,7 +101,11 @@ function checkSearchInput(list) {
         }
     })
 
-    
+    // for(let i=0; i<list.length; i++){
+    //     if(checkIfItemMatchInput(list[i].name, input)){
+    //         myNewList.push(list[i])
+    //     }
+    // }
 
     return myNewList;
 
