@@ -41,7 +41,6 @@ export function checkSearchInput(list) {
     const input = search 
 
     for(let i=0; i<list.length; i++){
-        displayValidItemsOnly(list[i].name, list[i].id, input);
         if(checkIfItemMatchInput(list[i].name, input)){
             myNewList.push(list[i])
         }
