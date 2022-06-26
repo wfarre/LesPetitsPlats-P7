@@ -38,8 +38,6 @@ async function getRecipes() {
 function resetDOM(){
     const cards = document.querySelectorAll(".card");
     const filters = document.querySelectorAll(".dropdown-item");
-    console.log("aie");
-    console.log(cards[2]);
 
     cards.forEach(card => {
         card.remove();
