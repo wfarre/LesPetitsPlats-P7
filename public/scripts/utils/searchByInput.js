@@ -39,11 +39,13 @@ export function searchByInput(filterArray){
 export function checkSearchInput(list) {
     const myNewList = [];
     const input = search 
-    list.forEach(item => {
-        if(checkIfItemMatchInput(item.name, input)){
-            myNewList.push(item)
+
+    for(let i=0; i<list.length; i++){
+        displayValidItemsOnly(list[i].name, list[i].id, input);
+        if(checkIfItemMatchInput(list[i].name, input)){
+            myNewList.push(list[i])
         }
-    })
+    }
 
     return myNewList;
 
